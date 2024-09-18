@@ -11,7 +11,7 @@
 138 manet
 ```
 
-##Решение 
+## Решение 
 
 ```
 cat /etc/protocols | sort –nk2 -r | head -n5 | awk '{print $2, $1}'
