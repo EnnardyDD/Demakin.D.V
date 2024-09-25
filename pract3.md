@@ -16,3 +16,4 @@
 ```
 text="Hello from RTU MIREA!"; text_length=${#text}; line=$(printf "%${text_length}s" | tr ' ' '-'); echo "+ ${line} +"; echo "| ${text} |"; echo "+ ${line} +"
 ```
+![image](https://github.com/user-attachments/assets/ab78a5ee-68a3-453a-9532-1365f60970c5)
