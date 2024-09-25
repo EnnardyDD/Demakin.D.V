@@ -10,4 +10,12 @@
 
 В результате для banner задаются правильные права доступа и сам banner копируется в /usr/local/bin.
 
+## Решение 
+
+```
+chmod +x reg.py
+sudo cp reg.py /usr/local/bin/reg
+reg
+```
+
 ![image](https://github.com/user-attachments/assets/ac7502dc-2369-482f-986c-9dcc3c731d56)
