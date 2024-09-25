@@ -16,3 +16,4 @@
 ```
 cat /etc/protocols | sort –nk2 -r | head -n5 | awk '{print $2, $1}'
 ```
+![image](https://github.com/user-attachments/assets/d415931d-5723-404d-99a7-787da0b1e2f9)
