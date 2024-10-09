@@ -117,15 +117,14 @@ var Left: left;
 var Right: right;
 var Shared: shared;
 
-constraint if left >= 100 then target = 100 endif;
+constraint if left < 100 then shared = 100 else target = 200 endif;
 
-constraint if right < 200 then target = 100 endif;
+constraint if right >= 100 then shared = 200 else shared = 100 endif;
 
 solve satisfy;
 ```
 
-![image](https://github.com/user-attachments/assets/1392a1e6-8448-4f02-9e4a-170575b525b2)
-
+![image](https://github.com/user-attachments/assets/a17ad2a8-1e5c-497e-92b6-13096a2d1f25)
 
 ## Задача 7
 
