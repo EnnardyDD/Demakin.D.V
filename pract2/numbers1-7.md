@@ -119,12 +119,12 @@ var Shared: shared;
 
 constraint if left < 100 then shared = 100 else target = 200 endif;
 
-constraint if right >= 100 then shared = 200 else shared = 100 endif;
+constraint if right >= 100 then shared = 100 endif;
 
 solve satisfy;
 ```
 
-![image](https://github.com/user-attachments/assets/a17ad2a8-1e5c-497e-92b6-13096a2d1f25)
+![image](https://github.com/user-attachments/assets/5c9d2505-111f-415e-94c8-a13ae7329b70)
 
 ## Задача 7
 
