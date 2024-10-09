@@ -47,7 +47,16 @@ npm info express
 ## Решение
 
 ```
+include "globals.mzn";
 
+array[1..6] of var 0..9: digits;
+constraint all_different(digits);
+
+var int: sum_first = sum(digits[1..3]);
+var int: sum_last = sum(digits[4..6]);
+
+constraint sum_first = sum_last;
+solve minimize sum_first;
 ```
 
 ## Задача 5
@@ -59,7 +68,19 @@ npm info express
 ## Решение
 
 ```
+set of int: Menu = {100, 110, 120, 130, 150};
+set of int: Dropdown = {230, 220, 210, 200, 180};
+set of int: Icons = {100, 200};
 
+var Menu: menu;
+var Dropdown: dropdown;
+var Icons: icons;
+
+constraint if menu >= 110 then dropdown >= 200 else dropdown = 180 endif;
+
+constraint if dropdown <= 200 /\ dropdown > 180 then icons = 200 else icons = 100 endif;
+
+solve satisfy;
 ```
 
 ## Задача 6
