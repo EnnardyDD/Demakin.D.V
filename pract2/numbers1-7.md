@@ -59,6 +59,8 @@ constraint sum_first = sum_last;
 solve minimize sum_first;
 ```
 
+![image](https://github.com/user-attachments/assets/76fd72b5-d90c-4715-a59d-29679d4bb222)
+
 ## Задача 5
 
 Решить на MiniZinc задачу о зависимостях пакетов для рисунка, приведенного ниже.
@@ -83,6 +85,8 @@ constraint if dropdown <= 200 /\ dropdown > 180 then icons = 200 else icons = 10
 solve satisfy;
 ```
 
+![image](https://github.com/user-attachments/assets/2b08afb5-b074-47eb-8315-ccbed608161a)
+
 ## Задача 6
 
 Решить на MiniZinc задачу о зависимостях пакетов для следующих данных:
@@ -101,8 +105,27 @@ target 2.0.0 и 1.0.0 не имеют зависимостей.
 ## Решение
 
 ```
+set of int: Foo = {100, 110};
+set of int: Target = {100, 200};
+set of int: Left = {100};
+set of int: Right = {100};
+set of int: Shared = {100, 200};
 
+var Foo: foo;
+var Target: target;
+var Left: left;
+var Right: right;
+var Shared: shared;
+
+constraint if left >= 100 then target = 100 endif;
+
+constraint if right < 200 then target = 100 endif;
+
+solve satisfy;
 ```
+
+![image](https://github.com/user-attachments/assets/1392a1e6-8448-4f02-9e4a-170575b525b2)
+
 
 ## Задача 7
 
