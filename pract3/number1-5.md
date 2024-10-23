@@ -211,11 +211,11 @@ def generate_phrase(grammar, start):
 
 BNF = '''
 S = A | B | C | D | E
-A = 1 0
-B = 1 0 0
-C = 1 1
-D = 1 0 1 1 0 1
-E = 0 0 0
+A = 1 1 | B
+B = 1 0 1 | A
+C = 1 1 0 1 | C | D
+D = 1 0 1 0 1 | D
+E = 0 1 | B | C
 '''
 
 for i in range(5):
