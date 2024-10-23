@@ -220,7 +220,6 @@ E = 0 0 0
 
 for i in range(5):
     print(generate_phrase(parse_bnf(BNF), 'S'))
-
 ```
 
 ## Задача 4
