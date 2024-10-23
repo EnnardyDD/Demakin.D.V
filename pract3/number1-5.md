@@ -210,7 +210,7 @@ def generate_phrase(grammar, start):
 
 
 BNF = '''
-S = A | B | C | D  
+S = A | B | C | D | E
 A = 1 0
 B = 1 0 0
 C = 1 1
