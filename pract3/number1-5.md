@@ -202,7 +202,6 @@ def generate_phrase(grammar, start):
         return ''.join([generate_phrase(grammar, name) for name in seq])
     return str(start)
 
-
 BNF = '''
 S = A | B | C | D | E
 A = 1 1 | B
@@ -247,7 +246,6 @@ def generate_phrase(grammar, start):
         seq = random.choice(grammar[start])
         return ''.join([generate_phrase(grammar, name) for name in seq])
     return str(start)
-
 
 BNF = '''
 S = A | B | C
