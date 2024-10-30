@@ -189,9 +189,6 @@ import random
 
 
 def parse_bnf(text):
-    '''
-    Преобразовать текстовую запись БНФ в словарь.
-    '''
     grammar = {}
     rules = [line.split('=') for line in text.strip().split('\n')]
     for name, body in rules:
@@ -200,9 +197,6 @@ def parse_bnf(text):
 
 
 def generate_phrase(grammar, start):
-    '''
-    Сгенерировать случайную фразу.
-    '''
     if start in grammar:
         seq = random.choice(grammar[start])
         return ''.join([generate_phrase(grammar, name) for name in seq])
