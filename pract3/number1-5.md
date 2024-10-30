@@ -231,7 +231,33 @@ for i in range(5):
 ## Решение
 
 ```
+import random
 
+
+def parse_bnf(text):
+    grammar = {}
+    rules = [line.split('=') for line in text.strip().split('\n')]
+    for name, body in rules:
+        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
+    return grammar
+
+
+def generate_phrase(grammar, start):
+    if start in grammar:
+        seq = random.choice(grammar[start])
+        return ''.join([generate_phrase(grammar, name) for name in seq])
+    return str(start)
+
+
+BNF = '''
+S = A | B | C
+A = ( B ) | { C } 
+B = ( A ) | { C }
+C = _
+'''
+
+for i in range(5):
+    print(generate_phrase(parse_bnf(BNF), 'S'))
 ```
 
 ## Задача 5
@@ -249,5 +275,30 @@ y & ~(y)
 ## Решение
 
 ```
+import random
 
+
+def parse_bnf(text):
+    grammar = {}
+    rules = [line.split('=') for line in text.strip().split('\n')]
+    for name, body in rules:
+        grammar[name.strip()] = [alt.split() for alt in body.split('|')]
+    return grammar
+
+
+def generate_phrase(grammar, start):
+    if start in grammar:
+        seq = random.choice(grammar[start])
+        return ''.join([generate_phrase(grammar, name) for name in seq])
+    return str(start)
+
+BNF = '''
+S = A
+A = A & T | A | T
+T = T | F | ~T | ( A )
+F = x | y
+'''
+
+for i in range(5):
+    print(generate_phrase(parse_bnf(BNF), 'S'))
 ```
