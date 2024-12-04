@@ -31,7 +31,27 @@ print(dis.dis(foo))
 ## Решение 
 
 ```
+LOAD_FAST 0 (x):
+Команда LOAD_FAST загружает локальную переменную x в стек. Индекс переменной 0 равен переменной x.
 
+LOAD_CONST 1 (10):
+Команда LOAD_CONST загружает константу 10 в стек.
+
+BINARY_MULTIPLY:
+Команда BINARY_MULTIPLY умножает два верхних значения на стеке и помещает результат обратно на стек. Операции выполняются над переменными x и 10.
+
+LOAD_CONST 2 (42):
+Команда LOAD_CONST загружает константу 42 в стек.
+
+BINARY_ADD:
+Команда BINARY_ADD складывает два верхних значения на стеке и помещает результат обратно на стек. Операции выполняются над результатом умножения и константой 42.
+
+RETURN_VALUE:
+Команда RETURN_VALUE возвращает верхнее значение из стека в качестве результата выполнения функции.
+
+Итог:
+result = (x * 10) + 42
+return result
 ```
 
 ## Задача 2
@@ -65,7 +85,56 @@ print(dis.dis(foo))
 ## Решение 
 
 ```
+LOAD_CONST 1 (1):
+Команда LOAD_CONST 1 (1) загружает константу 1 в стек. Это начальное значение для переменной r.
 
+STORE_FAST 1 (r):
+Команда STORE_FAST 1 (r) сохраняет значение 1 из стека в локальную переменную r.
+
+LOAD_FAST 0 (n):
+Команда LOAD_FAST 0 (n) загружает значение переменной n в стек.
+
+LOAD_CONST 1 (1):
+Команда LOAD_CONST 1 (1) загружает константу 1 в стек.
+
+COMPARE_OP 4 (>):
+Команда COMPARE_OP 4 (>) сравнивает n и 1 на предмет того, больше ли n единицы.
+
+POP_JUMP_IF_FALSE 30:
+Если результат сравнения n > 1 — False, то переход к строке 30 (к завершению функции). Иначе выполняется тело цикла.
+
+Тело цикла (строки 12–28):
+Команда LOAD_FAST 1 (r) загружает значение r в стек.
+
+LOAD_FAST 0 (n):
+Команда LOAD_FAST 0 (n) загружает значение n в стек.
+
+INPLACE_MULTIPLY:
+Команда INPLACE_MULTIPLY умножает r на n и сохраняет результат в r.
+
+STORE_FAST 1 (r):
+Команда STORE_FAST 1 (r) обновляет значение переменной r на r * n.
+
+LOAD_FAST 0 (n):
+Команда LOAD_FAST 0 (n) загружает значение n в стек.
+
+LOAD_CONST 1 (1):
+Команда LOAD_CONST 1 (1) загружает константу 1 в стек.
+
+INPLACE_SUBTRACT:
+Команда INPLACE_SUBTRACT уменьшает n на 1.
+
+STORE_FAST 0 (n):
+Команда STORE_FAST 0 (n) обновляет значение n на n - 1.
+
+JUMP_ABSOLUTE 4:
+Переходит обратно к началу цикла (в строку 4), чтобы снова проверить условие n > 1.
+
+LOAD_FAST 1 (r):
+Завершение функции: Команда LOAD_FAST 1 (r) загружает значение r в стек (это результат вычисления факториала).
+
+RETURN_VALUE:
+Команда RETURN_VALUE возвращает значение r как результат выполнения функции.
 ```
 
 ## Задача 3
@@ -74,8 +143,45 @@ print(dis.dis(foo))
 
 ## Решение 
 
+Код на Java
+
+```
+package ru.qq;
+
+public class Main {
+    public static void main(String[] args) {
+        foo(10);
+    }
+
+    private static int foo(int x){
+        int result = (x * 10) + 42;
+        return result;
+    }
+}
 ```
 
+Код на C#
+
+```
+using System;
+
+namespace Ru.Qq
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int result = Foo(10);
+            Console.WriteLine(result);
+        }
+
+        private static int Foo(int x)
+        {
+            int result = (x * 10) + 42;
+            return result;
+        }
+    }
+}
 ```
 
 ## Задача 4
